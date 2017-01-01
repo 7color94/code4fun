@@ -1,10 +1,6 @@
 #include<iostream>
-#include<string.h>
 
 using namespace std;
-
-
-
 
 int main() {
     int childs[3005], f[3005], n;
