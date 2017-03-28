@@ -27,6 +27,7 @@ void swap_row(int x, int y) {
 		for (int i = 1; i <= N; i++) {
 			std::swap(A[x][i], A[y][i]);
 		}
+		std::swap(b[x], b[y]);
 	}
 }
 
@@ -86,8 +87,8 @@ void cal_solution() {
 }
 
 int main() {
-	ifstream cin("input.txt");
-	ofstream cout("output.txt");
+	//ifstream cin("input.txt");
+	//ofstream cout("output.txt");
 	cin >> N;
 	cin >> M;
 	int _a, _b;
