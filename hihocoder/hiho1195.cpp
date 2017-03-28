@@ -31,9 +31,11 @@ void swap_row(int x, int y) {
 }
 
 void Gaussian_elimination() {
+	// 形成上三角矩阵，对于所有 i > j, A[i][j] = 0
+	// loop all [1 ~ N]
 	for (int i = 1; i <= N; i++) {
 		bool flag = false;
-		// j从第i行开始，找到第i行不等于0的j
+		// j从第i行开始，找到第i列不等于0的j，交换以确保A[i][i] != 0
 		for (int j = i; j <= M; j++) {
 			if (A[j][i] != 0) {
 				swap_row(i, j);
@@ -46,6 +48,7 @@ void Gaussian_elimination() {
 			return;
 		}
 		for (int j = i + 1; j <= M; j++) {
+			// 用A[i][i]去消除 A[i+1..M][i]，同时A[i+1..M][i..N]也跟着更新
 			double f = 1.0 * A[j][i] / A[i][i];
 			for (int t = i; t <= N; t++) {
 				A[j][t] = A[j][t] - A[i][t] * f;
@@ -72,6 +75,7 @@ void cal_solution() {
 			return;
 		}
 	}
+	// 求解
 	for (int i = N; i >= 1; i--) {
 		for (int j = i + 1; j <= N; j++) {
 			b[i] = b[i] - A[i][j] * value[j];
