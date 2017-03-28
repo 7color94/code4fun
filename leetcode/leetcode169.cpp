@@ -4,8 +4,6 @@
 
 using namespace std;
 
-#define random(x) (rand()%x)
-
 class Solution {
 public:
 	int majorityElement(vector<int>& nums) {
