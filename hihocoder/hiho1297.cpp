@@ -34,6 +34,7 @@ bool LinearEquation(long long A, long long B, long long C, long long& x, long lo
 
 	ExtendedEuclid(rawA, rawB, x, y);
 
+	// 防止溢出
 	x = (x * C) % B;
 	while (x < 0) {
 		x += B > 0 ? B : -B;
