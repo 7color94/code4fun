@@ -10,6 +10,7 @@ Inputs: 1 <= n, m <= 10^9
 Outputs: m % 1 + m % 2 + ... + m % n
 Samples:
 	In: 5 5, Out: 4
+	In: 6 5, Out: 9
 	In: 10^8 10^8, Out: 565378460
 	In: 10^9 10^9, Out: 644908624
 '''
@@ -55,6 +56,13 @@ LL solve(LL n, LL m) {
 			ans %= MOD;
 
 			if (n <= right) break;
+		}
+	}
+	if (n >= m) {
+		for (int i = m + 1; i <= n; i++) {
+			ans += ((m % i) % MOD);
+			ans %= MOD;
+			if (ans < 0) ans += MOD;
 		}
 	}
 
